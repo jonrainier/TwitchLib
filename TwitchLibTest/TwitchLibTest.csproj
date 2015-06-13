@@ -7,8 +7,8 @@
     <ProjectGuid>{E9E9D287-335E-4C4D-8F90-0AC323E52878}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TwitchTutorial</RootNamespace>
-    <AssemblyName>TwitchTutorial</AssemblyName>
+    <RootNamespace>TwitchLibTest</RootNamespace>
+    <AssemblyName>TwitchLibTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TwitchTutorial.cs" />
+    <Compile Include="TwitchLibTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

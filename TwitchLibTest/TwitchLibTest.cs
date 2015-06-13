@@ -2,7 +2,7 @@
 using TwitchLib;
 using TwitchLib.Util;
 
-namespace TwitchTutorial
+namespace TwitchLibTest
 {
     class TwitchLibTest
     {
