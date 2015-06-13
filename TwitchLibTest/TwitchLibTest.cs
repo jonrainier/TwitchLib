@@ -1,11 +1,10 @@
 ﻿using System;
 using TwitchLib;
-using TwitchLib.Model;
 using TwitchLib.Util;
 
 namespace TwitchTutorial
 {
-    class TwitchTutorial
+    class TwitchLibTest
     {
         private static string twitchChannel = "";
 
@@ -16,7 +15,7 @@ namespace TwitchTutorial
             else
                 return;
 
-            var initTwitch = new Twitch("pwnoz0r");
+            var initTwitch = new Twitch(twitchChannel);
 
             Console.WriteLine("Configuration directory: {0}", Twitch.Configuration.DirectoryConfiguration);
             Console.WriteLine("Version: {0}", Twitch.Configuration.Version);
@@ -52,7 +51,8 @@ namespace TwitchTutorial
                 iGames--;
             }
 
-            Console.WriteLine("Viewers: {0}", Twitch.StreamLive.Stream.Viewers);
+            if (Twitch.StreamLive.Stream != null)
+                Console.WriteLine("Viewers: {0}", Twitch.StreamLive.Stream.Viewers);
 
             int iIngests = Twitch.IngestServer.Ingests.Count;
             Console.Write("Top ({0}) Ingests: ", iIngests);
