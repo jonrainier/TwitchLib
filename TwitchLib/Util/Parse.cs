@@ -29,6 +29,7 @@ namespace TwitchLib.Util
 
             var client = new RestClient(prefix);
             var request = new RestRequest(requestURL, Method.GET);
+            request.AddHeader("Accept", "application/vnd.twitchtv.v3+json");
 
             string json = "";
 
