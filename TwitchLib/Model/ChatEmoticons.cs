@@ -5,7 +5,6 @@ namespace TwitchLib.Model
 {
     public class Emoticon
     {
-
         [JsonProperty("id")]
         public int Id { get; set; }
 
@@ -18,7 +17,6 @@ namespace TwitchLib.Model
 
     public class ChatEmoticons
     {
-
         [JsonProperty("emoticons")]
         public IList<Emoticon> Emoticons { get; set; }
     }

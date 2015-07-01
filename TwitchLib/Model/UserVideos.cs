@@ -7,7 +7,6 @@ namespace TwitchLib.Model
 {
     public class Video
     {
-
         [JsonProperty("title")]
         public string Title { get; set; }
 
@@ -45,7 +44,7 @@ namespace TwitchLib.Model
         public int Views { get; set; }
 
         [JsonProperty("fps")]
-        public FPS FPS { get; set; }
+        public Fps Fps { get; set; }
 
         [JsonProperty("resolutions")]
         public Resolutions Resolutions { get; set; }
@@ -62,7 +61,6 @@ namespace TwitchLib.Model
 
     public class UserVideos
     {
-
         [JsonProperty("_total")]
         public int Total { get; set; }
 

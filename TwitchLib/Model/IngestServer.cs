@@ -6,7 +6,6 @@ namespace TwitchLib.Model
 {
     public class IngestServer
     {
-
         [JsonProperty("_links")]
         public Links Links { get; set; }
 

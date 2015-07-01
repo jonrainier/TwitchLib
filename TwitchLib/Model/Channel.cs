@@ -6,7 +6,6 @@ namespace TwitchLib.Model
 {
     public class Channel
     {
-
         [JsonProperty("mature")]
         public bool Mature { get; set; }
 

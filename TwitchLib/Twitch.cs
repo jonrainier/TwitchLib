@@ -5,11 +5,21 @@ namespace TwitchLib
 {
     public class Twitch
     {
+        public Twitch(string channel, string apiToken = "")
+        {
+            Configuration = new Configuration
+            {
+                Channel = channel,
+                ApiToken = apiToken
+            };
+            Logger = new Logger();
+            Parse = new Parse();
+        }
+
         // TwitchLib.Util
         public static Configuration Configuration { get; set; }
         public static Logger Logger { get; set; }
         public static Parse Parse { get; set; }
-
         // TwitchLib.Model
         public static Channel Channel { get; set; }
         public static Chat Chat { get; set; }
@@ -20,16 +30,5 @@ namespace TwitchLib
         public static StreamLive StreamLive { get; set; }
         public static User User { get; set; }
         public static UserVideos UserVideos { get; set; }
-
-        public Twitch(string channel, string apiToken = "")
-        {
-            Configuration = new Configuration()
-            {
-                Channel = channel,
-                APIToken = apiToken,
-            };
-            Logger = new Logger();
-            Parse = new Parse();
-        }
     }
 }

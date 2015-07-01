@@ -4,7 +4,6 @@ namespace TwitchLib.Model.Static
 {
     public class Ingest
     {
-
         [JsonProperty("name")]
         public string Name { get; set; }
 

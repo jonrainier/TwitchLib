@@ -6,7 +6,6 @@ namespace TwitchLib.Model
 {
     public class Chatters
     {
-
         [JsonProperty("moderators")]
         public IList<string> Moderators { get; set; }
 
@@ -25,7 +24,6 @@ namespace TwitchLib.Model
 
     public class Chat
     {
-
         [JsonProperty("_links")]
         public Links Links { get; set; }
 
@@ -35,5 +33,4 @@ namespace TwitchLib.Model
         [JsonProperty("chatters")]
         public Chatters Chatters { get; set; }
     }
-
 }

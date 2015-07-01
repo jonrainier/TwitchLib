@@ -4,33 +4,40 @@ using TwitchLib.Util;
 
 namespace TwitchLibTest
 {
-    class TwitchLibTest
+    internal class TwitchLibTest
     {
-        private static string twitchChannel = "";
+        private static string _twitchChannel = "";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (args.Length >= 1)
                 ProcessArgs(args);
             else
                 return;
 
-            var initTwitch = new Twitch(twitchChannel);
+            var initTwitch = new Twitch(_twitchChannel);
 
             Console.WriteLine("Configuration directory: {0}", Twitch.Configuration.DirectoryConfiguration);
             Console.WriteLine("Version: {0}", Twitch.Configuration.Version);
             Console.WriteLine("Channel: {0}", Twitch.Configuration.Channel);
 
             // parse that data
-            Twitch.Parse.TwitchParse(string.Format("group/user/{0}/chatters", Twitch.Configuration.Channel), "CHAT", Parse.RequestType.TMI);
-            Twitch.Parse.TwitchParse(string.Format("channels/{0}", Twitch.Configuration.Channel), "CHANNEL", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse(string.Format("chat/{0}/badges", Twitch.Configuration.Channel), "CHATBADGES", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse("chat/emoticon_images", "CHATEMOTICONS", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse("games/top", "GAMESTOP", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse(string.Format("streams/{0}", Twitch.Configuration.Channel), "STREAM", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse("ingests", "INGEST", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse(string.Format("users/{0}", Twitch.Configuration.Channel), "USER", Parse.RequestType.KRAKEN);
-            Twitch.Parse.TwitchParse(string.Format("channels/{0}/videos?broadcasts=true", Twitch.Configuration.Channel), "USERVIDEOS", Parse.RequestType.KRAKEN);
+            Twitch.Parse.TwitchParse(string.Format("group/user/{0}/chatters", Twitch.Configuration.Channel), "CHAT",
+                Parse.RequestType.Tmi);
+            Twitch.Parse.TwitchParse(string.Format("channels/{0}", Twitch.Configuration.Channel), "CHANNEL",
+                Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse(string.Format("chat/{0}/badges", Twitch.Configuration.Channel), "CHATBADGES",
+                Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse("chat/emoticon_images", "CHATEMOTICONS", Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse("games/top", "GAMESTOP", Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse(string.Format("streams/{0}", Twitch.Configuration.Channel), "STREAM",
+                Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse("ingests", "INGEST", Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse(string.Format("users/{0}", Twitch.Configuration.Channel), "USER",
+                Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse(
+                string.Format("channels/{0}/videos?broadcasts=true", Twitch.Configuration.Channel), "USERVIDEOS",
+                Parse.RequestType.Kraken);
 
             Console.WriteLine("-----------------------------------------");
 
@@ -40,7 +47,7 @@ namespace TwitchLibTest
             Console.WriteLine("Test Mod Image: {0}", Twitch.ChatBadges.Mod.Image);
             Console.WriteLine("Emote: {0}", Twitch.ChatEmoticons.Emoticons[0].Code);
 
-            int iGames = Twitch.GamesTop.Top.Count;
+            var iGames = Twitch.GamesTop.Top.Count;
             Console.Write("Top ({0}) Games: ", iGames);
             foreach (var game in Twitch.GamesTop.Top)
             {
@@ -54,7 +61,7 @@ namespace TwitchLibTest
             if (Twitch.StreamLive.Stream != null)
                 Console.WriteLine("Viewers: {0}", Twitch.StreamLive.Stream.Viewers);
 
-            int iIngests = Twitch.IngestServer.Ingests.Count;
+            var iIngests = Twitch.IngestServer.Ingests.Count;
             Console.Write("Top ({0}) Ingests: ", iIngests);
             foreach (var server in Twitch.IngestServer.Ingests)
             {
@@ -73,15 +80,15 @@ namespace TwitchLibTest
 
         private static void ProcessArgs(string[] args)
         {
-            foreach (string s in args)
+            foreach (var s in args)
             {
-                string[] cl = s.Split('=');
-                string clSwitch = cl[0];
-                string clParam = cl[1];
+                var cl = s.Split('=');
+                var clSwitch = cl[0];
+                var clParam = cl[1];
                 switch (clSwitch)
                 {
                     case "-stream":
-                        twitchChannel = clParam;
+                        _twitchChannel = clParam;
                         break;
                 }
             }

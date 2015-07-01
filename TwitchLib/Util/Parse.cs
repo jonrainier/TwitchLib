@@ -1,7 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
 using TwitchLib.Model;
-using RestSharp;
 
 namespace TwitchLib.Util
 {
@@ -9,32 +8,38 @@ namespace TwitchLib.Util
     {
         public enum RequestType
         {
-            KRAKEN,
-            TMI
+            Kraken,
+            Tmi
         }
 
-        public void TwitchParse(string requestURL, string model, RequestType type)
+        public void TwitchParse(string requestUrl, string model, RequestType type)
         {
-            string prefix = "";
+            var prefix = "";
 
             switch (type)
             {
-                case RequestType.KRAKEN:
+                case RequestType.Kraken:
                     prefix = "https://api.twitch.tv/kraken";
                     break;
-                case RequestType.TMI:
+                case RequestType.Tmi:
                     prefix = "https://tmi.twitch.tv";
                     break;
             }
 
             var client = new RestClient(prefix);
-            var request = new RestRequest(requestURL, Method.GET);
+            var request = new RestRequest(requestUrl, Method.GET);
             request.AddHeader("Accept", "application/vnd.twitchtv.v3+json");
 
-            string json = "";
+            var json = "";
 
-            try { json = client.Execute(request).Content; }
-            catch (Exception ex) { Twitch.Logger.Log(1, ex.Message); }
+            try
+            {
+                json = client.Execute(request).Content;
+            }
+            catch (Exception ex)
+            {
+                Twitch.Logger.Log(1, ex.Message);
+            }
 
             if (json != "")
             {
