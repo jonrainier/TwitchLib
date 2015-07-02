@@ -50,42 +50,9 @@ namespace TwitchLib.Util
                 }
                 else
                 {
-                    Twitch.Logger.Log(1, response.ReasonPhrase);
+                    _twitch.Logger.Log(1, response.ReasonPhrase);
                 }
             }
-
-            //if (json == "") return;
-
-            //switch (model)
-            //{
-            //    case "CHANNEL":
-            //        Twitch.Channel = JsonConvert.DeserializeObject<Channel>(json);
-            //        break;
-            //    case "CHAT":
-            //        Twitch.Chat = JsonConvert.DeserializeObject<Chat>(json);
-            //        break;
-            //    case "CHATBADGES":
-            //        Twitch.ChatBadges = JsonConvert.DeserializeObject<ChatBadges>(json);
-            //        break;
-            //    case "CHATEMOTICONS":
-            //        Twitch.ChatEmoticons = JsonConvert.DeserializeObject<ChatEmoticons>(json);
-            //        break;
-            //    case "GAMESTOP":
-            //        Twitch.GamesTop = JsonConvert.DeserializeObject<GamesTop>(json);
-            //        break;
-            //    case "INGEST":
-            //        Twitch.IngestServer = JsonConvert.DeserializeObject<IngestServer>(json);
-            //        break;
-            //    case "STREAM":
-            //        Twitch.StreamLive = JsonConvert.DeserializeObject<StreamLive>(json);
-            //        break;
-            //    case "USER":
-            //        Twitch.User = JsonConvert.DeserializeObject<User>(json);
-            //        break;
-            //    case "USERVIDEOS":
-            //        Twitch.UserVideos = JsonConvert.DeserializeObject<UserVideos>(json);
-            //        break;
-            //}
         }
     }
 }

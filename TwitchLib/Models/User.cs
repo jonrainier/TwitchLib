@@ -1,6 +1,6 @@
 ﻿using System;
 using Newtonsoft.Json;
-using TwitchLib.Model.Static;
+using TwitchLib.Models.Static;
 
 namespace TwitchLib.Models
 {

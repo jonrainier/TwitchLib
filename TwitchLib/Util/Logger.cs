@@ -6,6 +6,13 @@ namespace TwitchLib.Util
 {
     public class Logger
     {
+        public Twitch _twitch;
+
+        public Logger()
+        {
+            _twitch = new Twitch(this);
+        }
+
         public void Log(int type, object obj, bool logFile = true)
         {
             var prefix = "";
@@ -20,8 +27,8 @@ namespace TwitchLib.Util
             }
 
             var logMessage = string.Format("{0} [{1}]: {2}", DateTime.Now.ToString("T"), prefix, obj);
-            var fileLog = Twitch.Configuration.FileLog;
-            var directoryConfig = Twitch.Configuration.DirectoryConfiguration;
+            var fileLog = _twitch.Configuration.FileLog;
+            var directoryConfig = _twitch.Configuration.DirectoryConfiguration;
 
             if (logFile)
             {

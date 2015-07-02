@@ -1,4 +1,6 @@
 ﻿using System;
+using TwitchLib.Models;
+using TwitchLib.Models.Static;
 using TwitchLib.Util;
 
 namespace TwitchLibTest
@@ -16,39 +18,43 @@ namespace TwitchLibTest
 
             var initTwitch = new Twitch(_twitchChannel);
 
-            Console.WriteLine("Configuration directory: {0}", Twitch.Configuration.DirectoryConfiguration);
-            Console.WriteLine("Version: {0}", Twitch.Configuration.Version);
-            Console.WriteLine("Channel: {0}", Twitch.Configuration.Channel);
+            Console.WriteLine("Configuration directory: {0}", initTwitch.Configuration.DirectoryConfiguration);
+            Console.WriteLine("Version: {0}", initTwitch.Configuration.Version);
+            Console.WriteLine("Channel: {0}", initTwitch.Configuration.Channel);
 
             // parse that data
-            Twitch.Parse.TwitchParse(string.Format("group/user/{0}/chatters", Twitch.Configuration.Channel), "CHAT",
+            initTwitch.Parse.TwitchParse(string.Format("group/user/{0}/chatters", initTwitch.Configuration.Channel),
+                typeof (Chatters),
                 Parse.RequestType.Tmi);
-            Twitch.Parse.TwitchParse(string.Format("channels/{0}", Twitch.Configuration.Channel), "CHANNEL",
+            initTwitch.Parse.TwitchParse(string.Format("channels/{0}", initTwitch.Configuration.Channel),
+                typeof (Channel),
                 Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse(string.Format("chat/{0}/badges", Twitch.Configuration.Channel), "CHATBADGES",
+            initTwitch.Parse.TwitchParse(string.Format("chat/{0}/badges", initTwitch.Configuration.Channel),
+                typeof (ChatBadges),
                 Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse("chat/emoticon_images", "CHATEMOTICONS", Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse("games/top", "GAMESTOP", Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse(string.Format("streams/{0}", Twitch.Configuration.Channel), "STREAM",
+            initTwitch.Parse.TwitchParse("chat/emoticon_images", typeof (ChatEmoticons), Parse.RequestType.Kraken);
+            initTwitch.Parse.TwitchParse("games/top", typeof (GamesTop), Parse.RequestType.Kraken);
+            initTwitch.Parse.TwitchParse(string.Format("streams/{0}", initTwitch.Configuration.Channel), typeof (Stream),
                 Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse("ingests", "INGEST", Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse(string.Format("users/{0}", Twitch.Configuration.Channel), "USER",
+            initTwitch.Parse.TwitchParse("ingests", typeof (Ingest), Parse.RequestType.Kraken);
+            initTwitch.Parse.TwitchParse(string.Format("users/{0}", initTwitch.Configuration.Channel), typeof (User),
                 Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse(
-                string.Format("channels/{0}/videos?broadcasts=true", Twitch.Configuration.Channel), "USERVIDEOS",
+            initTwitch.Parse.TwitchParse(
+                string.Format("channels/{0}/videos?broadcasts=true", initTwitch.Configuration.Channel),
+                typeof (UserVideos),
                 Parse.RequestType.Kraken);
 
             Console.WriteLine("-----------------------------------------");
 
             // test parsed data (make sure it's not returning null)
-            Console.WriteLine("Chatter Count: {0}", Twitch.Chat.ChatterCount);
-            Console.WriteLine("Channel Display Name: {0}", Twitch.Channel.DisplayName);
-            Console.WriteLine("Test Mod Image: {0}", Twitch.ChatBadges.Mod.Image);
-            Console.WriteLine("Emote: {0}", Twitch.ChatEmoticons.Emoticons[0].Code);
+            Console.WriteLine("Chatter Count: {0}", initTwitch.Chat.ChatterCount);
+            Console.WriteLine("Channel Display Name: {0}", initTwitch.Channel.DisplayName);
+            Console.WriteLine("Test Mod Image: {0}", initTwitch.ChatBadges.Mod.Image);
+            Console.WriteLine("Emote: {0}", initTwitch.ChatEmoticons.Emoticons[0].Code);
 
-            var iGames = Twitch.GamesTop.Top.Count;
+            var iGames = initTwitch.GamesTop.Top.Count;
             Console.Write("Top ({0}) Games: ", iGames);
-            foreach (var game in Twitch.GamesTop.Top)
+            foreach (var game in initTwitch.GamesTop.Top)
             {
                 if (iGames != 1)
                     Console.Write("{0}, ", game.Game.Name);
@@ -57,12 +63,12 @@ namespace TwitchLibTest
                 iGames--;
             }
 
-            if (Twitch.StreamLive.Stream != null)
-                Console.WriteLine("Viewers: {0}", Twitch.StreamLive.Stream.Viewers);
+            if (initTwitch.StreamLive.Stream != null)
+                Console.WriteLine("Viewers: {0}", initTwitch.StreamLive.Stream.Viewers);
 
-            var iIngests = Twitch.IngestServer.Ingests.Count;
+            var iIngests = initTwitch.IngestServer.Ingests.Count;
             Console.Write("Top ({0}) Ingests: ", iIngests);
-            foreach (var server in Twitch.IngestServer.Ingests)
+            foreach (var server in initTwitch.IngestServer.Ingests)
             {
                 if (iIngests != 1)
                     Console.Write("\"{0}\", ", server.Name);
@@ -71,8 +77,8 @@ namespace TwitchLibTest
                 iIngests--;
             }
 
-            Console.WriteLine("Bio: {0}", Twitch.User.Bio);
-            Console.WriteLine("User Video: {0}", Twitch.UserVideos.Total);
+            Console.WriteLine("Bio: {0}", initTwitch.User.Bio);
+            Console.WriteLine("User Video: {0}", initTwitch.UserVideos.Total);
 
             Console.ReadKey();
         }

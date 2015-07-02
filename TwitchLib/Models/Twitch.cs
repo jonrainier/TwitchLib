@@ -1,5 +1,4 @@
-﻿using TwitchLib.Models;
-using TwitchLib.Util;
+﻿using TwitchLib.Util;
 
 namespace TwitchLib.Models
 {
@@ -19,6 +18,16 @@ namespace TwitchLib.Models
         public Twitch(Parse p)
         {
             Parse = p;
+        }
+
+        public Twitch(Configuration c)
+        {
+            Configuration = c;
+        }
+
+        public Twitch(Logger l)
+        {
+            Logger = l;
         }
 
         // TwitchLib.Util
