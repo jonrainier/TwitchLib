@@ -26,7 +26,7 @@ namespace TwitchLib
             Configuration = new Configuration()
             {
                 Channel = channel,
-                APIToken = apiToken,
+                ApiToken = apiToken,
             };
             Logger = new Logger();
             Parse = new Parse();

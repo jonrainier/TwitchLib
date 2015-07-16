@@ -45,7 +45,7 @@ namespace TwitchLib.Model
         public int Views { get; set; }
 
         [JsonProperty("fps")]
-        public FPS FPS { get; set; }
+        public Fps Fps { get; set; }
 
         [JsonProperty("resolutions")]
         public Resolutions Resolutions { get; set; }

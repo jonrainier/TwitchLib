@@ -2,7 +2,7 @@
 
 namespace TwitchLib.Model.Static
 {
-    public class FPS
+    public class Fps
     {
         [JsonProperty("audio_only")]
         public double AudioOnly { get; set; }

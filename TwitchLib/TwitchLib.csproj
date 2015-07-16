@@ -54,7 +54,7 @@
     <Compile Include="Model\ChatEmoticons.cs" />
     <Compile Include="Model\GamesTop.cs" />
     <Compile Include="Model\IngestServer.cs" />
-    <Compile Include="Model\Static\FPS.cs" />
+    <Compile Include="Model\Static\Fps.cs" />
     <Compile Include="Model\Static\Ingest.cs" />
     <Compile Include="Model\Static\Links.cs" />
     <Compile Include="Model\Static\Resolutions.cs" />
