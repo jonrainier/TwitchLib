@@ -5,7 +5,6 @@ namespace TwitchLib.Model
 {
     public class GlobalMod
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -18,7 +17,6 @@ namespace TwitchLib.Model
 
     public class Admin
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -31,7 +29,6 @@ namespace TwitchLib.Model
 
     public class Broadcaster
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -44,7 +41,6 @@ namespace TwitchLib.Model
 
     public class Mod
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -57,7 +53,6 @@ namespace TwitchLib.Model
 
     public class Staff
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -70,7 +65,6 @@ namespace TwitchLib.Model
 
     public class Turbo
     {
-
         [JsonProperty("alpha")]
         public string Alpha { get; set; }
 
@@ -83,7 +77,6 @@ namespace TwitchLib.Model
 
     public class ChatBadges
     {
-
         [JsonProperty("global_mod")]
         public GlobalMod GlobalMod { get; set; }
 

@@ -5,11 +5,11 @@ using TwitchLib.Util;
 
 namespace TwitchLibTest
 {
-    class TwitchLibTest
+    internal class TwitchLibTest
     {
         private static string _twitchChannel = "";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (args.Length >= 1)
                 ProcessArgs(args);
@@ -17,21 +17,23 @@ namespace TwitchLibTest
                 return;
 
             var initTwitch = new Twitch(_twitchChannel);
-
-            Console.WriteLine("Configuration directory: {0}", Twitch.Configuration.DirectoryConfiguration);
+            
             Console.WriteLine("Version: {0}", Twitch.Configuration.Version);
             Console.WriteLine("Channel: {0}", Twitch.Configuration.Channel);
 
             // parse that data
-            Twitch.Parse.TwitchParse($"group/user/{Twitch.Configuration.Channel}/chatters", "CHAT", Parse.RequestType.Tmi);
+            Twitch.Parse.TwitchParse($"group/user/{Twitch.Configuration.Channel}/chatters", "CHAT",
+                Parse.RequestType.Tmi);
             Twitch.Parse.TwitchParse($"channels/{Twitch.Configuration.Channel}", "CHANNEL", Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse($"chat/{Twitch.Configuration.Channel}/badges", "CHATBADGES", Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse($"chat/{Twitch.Configuration.Channel}/badges", "CHATBADGES",
+                Parse.RequestType.Kraken);
             Twitch.Parse.TwitchParse("chat/emoticon_images", "CHATEMOTICONS", Parse.RequestType.Kraken);
             Twitch.Parse.TwitchParse("games/top", "GAMESTOP", Parse.RequestType.Kraken);
             Twitch.Parse.TwitchParse($"streams/{Twitch.Configuration.Channel}", "STREAM", Parse.RequestType.Kraken);
             Twitch.Parse.TwitchParse("ingests", "INGEST", Parse.RequestType.Kraken);
             Twitch.Parse.TwitchParse($"users/{Twitch.Configuration.Channel}", "USER", Parse.RequestType.Kraken);
-            Twitch.Parse.TwitchParse($"channels/{Twitch.Configuration.Channel}/videos?broadcasts=true", "USERVIDEOS", Parse.RequestType.Kraken);
+            Twitch.Parse.TwitchParse($"channels/{Twitch.Configuration.Channel}/videos?broadcasts=true", "USERVIDEOS",
+                Parse.RequestType.Kraken);
 
             Console.WriteLine("-----------------------------------------");
 

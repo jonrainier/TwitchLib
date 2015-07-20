@@ -6,7 +6,6 @@ namespace TwitchLib.Model
 {
     public class User
     {
-
         [JsonProperty("display_name")]
         public string DisplayName { get; set; }
 

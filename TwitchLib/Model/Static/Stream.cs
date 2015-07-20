@@ -5,7 +5,6 @@ namespace TwitchLib.Model.Static
 {
     public class Stream
     {
-
         [JsonProperty("_id")]
         public long Id { get; set; }
 

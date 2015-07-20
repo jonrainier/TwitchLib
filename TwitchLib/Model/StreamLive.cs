@@ -5,7 +5,6 @@ namespace TwitchLib.Model
 {
     public class Preview
     {
-
         [JsonProperty("small")]
         public string Small { get; set; }
 
@@ -21,11 +20,10 @@ namespace TwitchLib.Model
 
     public class StreamLive
     {
-
         [JsonProperty("_links")]
         public Links Links { get; set; }
 
         [JsonProperty("stream")]
-        public Static.Stream Stream { get; set; }
+        public Stream Stream { get; set; }
     }
 }

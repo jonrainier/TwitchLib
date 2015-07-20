@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
-using TwitchLib.Model;
 using RestSharp;
+using TwitchLib.Model;
 
 namespace TwitchLib.Util
 {
@@ -33,8 +33,14 @@ namespace TwitchLib.Util
 
             var json = "";
 
-            try { json = client.Execute(request).Content; }
-            catch (Exception ex) { Twitch.Logger.Log(1, ex.Message); }
+            try
+            {
+                json = client.Execute(request).Content;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"ERROR: {ex.Message}");
+            }
 
             if (json == "") return;
             switch (model)

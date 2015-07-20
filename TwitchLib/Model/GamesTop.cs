@@ -6,7 +6,6 @@ namespace TwitchLib.Model
 {
     public class Box
     {
-
         [JsonProperty("large")]
         public string Large { get; set; }
 
@@ -22,7 +21,6 @@ namespace TwitchLib.Model
 
     public class Logo
     {
-
         [JsonProperty("large")]
         public string Large { get; set; }
 
@@ -38,7 +36,6 @@ namespace TwitchLib.Model
 
     public class Game
     {
-
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -57,7 +54,6 @@ namespace TwitchLib.Model
 
     public class Top
     {
-
         [JsonProperty("viewers")]
         public int Viewers { get; set; }
 
@@ -70,7 +66,6 @@ namespace TwitchLib.Model
 
     public class GamesTop
     {
-
         [JsonProperty("_total")]
         public int Total { get; set; }
 
