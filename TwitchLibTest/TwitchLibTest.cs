@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using TwitchLib.Controllers;
 using TwitchLib.Models;
 using TwitchLib.Models.Static;
 using TwitchLib.Util;
@@ -17,32 +19,25 @@ namespace TwitchLibTest
                 return;
 
             var initTwitch = new Twitch(_twitchChannel);
+            var twitchController = new TwitchController();
 
             Console.WriteLine("Configuration directory: {0}", initTwitch.Configuration.DirectoryConfiguration);
             Console.WriteLine("Version: {0}", initTwitch.Configuration.Version);
             Console.WriteLine("Channel: {0}", initTwitch.Configuration.Channel);
 
             // parse that data
-            initTwitch.Parse.TwitchParse(string.Format("group/user/{0}/chatters", initTwitch.Configuration.Channel),
-                typeof (Chatters),
-                Parse.RequestType.Tmi);
-            initTwitch.Parse.TwitchParse(string.Format("channels/{0}", initTwitch.Configuration.Channel),
-                typeof (Channel),
-                Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse(string.Format("chat/{0}/badges", initTwitch.Configuration.Channel),
-                typeof (ChatBadges),
-                Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse("chat/emoticon_images", typeof (ChatEmoticons), Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse("games/top", typeof (GamesTop), Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse(string.Format("streams/{0}", initTwitch.Configuration.Channel), typeof (Stream),
-                Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse("ingests", typeof (Ingest), Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse(string.Format("users/{0}", initTwitch.Configuration.Channel), typeof (User),
-                Parse.RequestType.Kraken);
-            initTwitch.Parse.TwitchParse(
-                string.Format("channels/{0}/videos?broadcasts=true", initTwitch.Configuration.Channel),
-                typeof (UserVideos),
-                Parse.RequestType.Kraken);
+            twitchController.ApiRequest<Chat>($"group/user/{initTwitch.Configuration.Channel}/chatters", TwitchController.RequestType.Tmi);
+            twitchController.ApiRequest<Channel>($"channels/{initTwitch.Configuration.Channel}", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<ChatBadges>($"chat/{initTwitch.Configuration.Channel}/badges", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<ChatEmoticons>("chat/emoticon_images", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<GamesTop>("games/top", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<StreamLive>($"streams/{initTwitch.Configuration.Channel}", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<IngestServer>("ingests", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<User>($"users/{initTwitch.Configuration.Channel}", TwitchController.RequestType.Kraken);
+            twitchController.ApiRequest<UserVideos>($"channels/{initTwitch.Configuration.Channel}/videos?broadcasts=true", TwitchController.RequestType.Kraken);
+
+            initTwitch = twitchController._twitch;
+            
 
             Console.WriteLine("-----------------------------------------");
 
@@ -83,7 +78,7 @@ namespace TwitchLibTest
             Console.ReadKey();
         }
 
-        private static void ProcessArgs(string[] args)
+        private static void ProcessArgs(IEnumerable<string> args)
         {
             foreach (var s in args)
             {

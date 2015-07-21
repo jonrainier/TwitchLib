@@ -1,4 +1,5 @@
-﻿using TwitchLib.Util;
+﻿using TwitchLib.Controllers;
+using TwitchLib.Util;
 
 namespace TwitchLib.Models
 {
@@ -12,12 +13,12 @@ namespace TwitchLib.Models
                 ApiToken = apiToken
             };
             Logger = new Logger();
-            Parse = new Parse();
+            TwitchController = new TwitchController();
         }
 
-        public Twitch(Parse p)
+        public Twitch(TwitchController p)
         {
-            Parse = p;
+            TwitchController = p;
         }
 
         public Twitch(Configuration c)
@@ -33,7 +34,7 @@ namespace TwitchLib.Models
         // TwitchLib.Util
         public Configuration Configuration { get; set; }
         public Logger Logger { get; set; }
-        public Parse Parse { get; set; }
+        public TwitchController TwitchController { get; set; }
         // TwitchLib.Model
         public Channel Channel { get; set; }
         public Chat Chat { get; set; }
