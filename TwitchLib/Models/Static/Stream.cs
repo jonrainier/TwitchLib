@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace TwitchLib.Model.Static
+namespace TwitchLib.Models.Static
 {
     public class Stream
     {
