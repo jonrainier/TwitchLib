@@ -7,34 +7,18 @@ namespace TwitchLib.Util
 {
     public class Configuration
     {
-        public Twitch _twitch;
+        public Twitch Twitch;
 
         public Configuration()
         {
-            _twitch = new Twitch(this);
+            Twitch = new Twitch(this);
         }
 
-        public string DirectoryCurrent
-        {
-            get { return Directory.GetCurrentDirectory(); }
-        }
+        public string DirectoryCurrent => Directory.GetCurrentDirectory();
 
-        public string DirectoryConfiguration
-        {
-            get { return Path.Combine(DirectoryCurrent, "Configuration"); }
-        }
-
-        public string FileLog
-        {
-            get { return Path.Combine(DirectoryConfiguration, "TwitchLib.log"); }
-        }
+        public string Version => FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
 
         public string Channel { get; set; }
         public string ApiToken { get; set; }
-
-        public string Version
-        {
-            get { return FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion; }
-        }
     }
 }

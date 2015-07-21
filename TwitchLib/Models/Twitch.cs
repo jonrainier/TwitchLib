@@ -12,7 +12,6 @@ namespace TwitchLib.Models
                 Channel = channel,
                 ApiToken = apiToken
             };
-            Logger = new Logger();
             TwitchController = new TwitchController();
         }
 
@@ -26,14 +25,8 @@ namespace TwitchLib.Models
             Configuration = c;
         }
 
-        public Twitch(Logger l)
-        {
-            Logger = l;
-        }
-
         // TwitchLib.Util
         public Configuration Configuration { get; set; }
-        public Logger Logger { get; set; }
         public TwitchController TwitchController { get; set; }
         // TwitchLib.Model
         public Channel Channel { get; set; }

@@ -13,12 +13,12 @@ namespace TwitchLib.Controllers
             Tmi
         }
 
-        public Twitch _twitch { get; set; }
-
         public TwitchController()
         {
-            _twitch = new Twitch(this);
+            Twitch = new Twitch(this);
         }
+
+        public Twitch Twitch { get; set; }
 
         public void ApiRequest<T>(string requestUrl, RequestType type)
         {
@@ -40,7 +40,7 @@ namespace TwitchLib.Controllers
                 client.Headers["application"] = "vnd.twitchtv.v3+json";
                 var requestData = client.DownloadString(prefix + requestUrl);
                 var formattedData = JsonConvert.DeserializeObject<T>(requestData);
-                _twitch.GetType().GetProperty(typeof (T).Name).SetValue(_twitch, formattedData);
+                Twitch.GetType().GetProperty(typeof (T).Name).SetValue(Twitch, formattedData);
             }
         }
     }

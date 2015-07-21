@@ -21,7 +21,6 @@ namespace TwitchLibTest
             var initTwitch = new Twitch(_twitchChannel);
             var twitchController = new TwitchController();
 
-            Console.WriteLine("Configuration directory: {0}", initTwitch.Configuration.DirectoryConfiguration);
             Console.WriteLine("Version: {0}", initTwitch.Configuration.Version);
             Console.WriteLine("Channel: {0}", initTwitch.Configuration.Channel);
 
@@ -36,7 +35,7 @@ namespace TwitchLibTest
             twitchController.ApiRequest<User>($"users/{initTwitch.Configuration.Channel}", TwitchController.RequestType.Kraken);
             twitchController.ApiRequest<UserVideos>($"channels/{initTwitch.Configuration.Channel}/videos?broadcasts=true", TwitchController.RequestType.Kraken);
 
-            initTwitch = twitchController._twitch;
+            initTwitch = twitchController.Twitch;
             
 
             Console.WriteLine("-----------------------------------------");
