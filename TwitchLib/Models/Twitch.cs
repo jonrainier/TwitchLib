@@ -36,6 +36,7 @@ namespace TwitchLib.Models
         public GamesTop GamesTop { get; set; }
         public IngestServer IngestServer { get; set; }
         public StreamLive StreamLive { get; set; }
+        public StreamsTop StreamsTop { get; set; }
         public User User { get; set; }
         public UserVideos UserVideos { get; set; }
     }

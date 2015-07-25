@@ -54,9 +54,11 @@
     <Compile Include="Models\Static\FPS.cs" />
     <Compile Include="Models\Static\Ingest.cs" />
     <Compile Include="Models\Static\Links.cs" />
+    <Compile Include="Models\Static\Preview.cs" />
     <Compile Include="Models\Static\Resolutions.cs" />
     <Compile Include="Models\Static\Stream.cs" />
     <Compile Include="Models\StreamLive.cs" />
+    <Compile Include="Models\StreamsTop.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserVideos.cs" />
     <Compile Include="Models\Twitch.cs" />
