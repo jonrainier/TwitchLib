@@ -4,7 +4,6 @@ namespace TwitchLib.Models.Static
 {
     public class Preview
     {
-
         [JsonProperty("small")]
         public string Small { get; set; }
 

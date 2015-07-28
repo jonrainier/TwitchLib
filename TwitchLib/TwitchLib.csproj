@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TwitchLib</RootNamespace>
     <AssemblyName>TwitchLib</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,12 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Authed\OAuthToken.cs" />
+    <Compile Include="Models\Authed\UserData.cs" />
     <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ChatBadges.cs" />
     <Compile Include="Models\ChatEmoticons.cs" />
     <Compile Include="Models\GamesTop.cs" />
     <Compile Include="Models\IngestServer.cs" />
+    <Compile Include="Models\Static\Authed\Notifications.cs" />
     <Compile Include="Models\Static\FPS.cs" />
     <Compile Include="Models\Static\Ingest.cs" />
     <Compile Include="Models\Static\Links.cs" />

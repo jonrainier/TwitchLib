@@ -6,7 +6,7 @@ namespace TwitchLib.Models
 {
     public class Channel
     {
-        [JsonProperty("mature")]
+        [JsonProperty("mature", NullValueHandling = NullValueHandling.Ignore)]
         public bool Mature { get; set; }
 
         [JsonProperty("status")]

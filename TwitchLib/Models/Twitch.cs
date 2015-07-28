@@ -1,4 +1,5 @@
 ﻿using TwitchLib.Controllers;
+using TwitchLib.Models.Authed;
 using TwitchLib.Util;
 
 namespace TwitchLib.Models
@@ -38,6 +39,7 @@ namespace TwitchLib.Models
         public StreamLive StreamLive { get; set; }
         public StreamsTop StreamsTop { get; set; }
         public User User { get; set; }
+        public UserData UserData { get; set; }
         public UserVideos UserVideos { get; set; }
     }
 }
