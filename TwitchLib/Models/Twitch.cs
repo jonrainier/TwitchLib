@@ -40,6 +40,7 @@ namespace TwitchLib.Models
         public StreamsTop StreamsTop { get; set; }
         public User User { get; set; }
         public UserData UserData { get; set; }
+        public UserSubscription UserSubscription { get; set; }
         public UserVideos UserVideos { get; set; }
     }
 }

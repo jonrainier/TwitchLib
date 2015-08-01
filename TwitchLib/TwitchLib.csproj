@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Models\Authed\OAuthToken.cs" />
     <Compile Include="Models\Authed\UserData.cs" />
+    <Compile Include="Models\Authed\UserSubscription.cs" />
     <Compile Include="Models\Chat.cs" />
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ChatBadges.cs" />
