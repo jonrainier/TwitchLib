@@ -34,6 +34,7 @@ namespace TwitchLib.Models
         public Chat Chat { get; set; }
         public ChatBadges ChatBadges { get; set; }
         public ChatEmoticons ChatEmoticons { get; set; }
+		public ChatServers ChatServers { get; set; }
         public GamesTop GamesTop { get; set; }
         public IngestServer IngestServer { get; set; }
         public StreamLive StreamLive { get; set; }
