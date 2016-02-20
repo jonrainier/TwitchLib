@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using TwitchLib.Models.Static;
-using TwitchLib.Models.Static.Authed;
 
 namespace TwitchLib.Models.Authed
 {

@@ -52,6 +52,7 @@
     <Compile Include="Models\Channel.cs" />
     <Compile Include="Models\ChatBadges.cs" />
     <Compile Include="Models\ChatEmoticons.cs" />
+    <Compile Include="Models\ChatServers.cs" />
     <Compile Include="Models\GamesTop.cs" />
     <Compile Include="Models\IngestServer.cs" />
     <Compile Include="Models\Static\Authed\Notifications.cs" />
