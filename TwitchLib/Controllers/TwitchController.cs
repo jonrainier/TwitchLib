@@ -13,9 +13,12 @@ namespace TwitchLib.Controllers
             Tmi
         }
 
-        public TwitchController()
+        private static string ClientId { get; set; }
+
+        public TwitchController(string clientId)
         {
             Twitch = new Twitch(this);
+            ClientId = clientId;
         }
 
         public Twitch Twitch { get; set; }
@@ -38,6 +41,7 @@ namespace TwitchLib.Controllers
             using (var client = new WebClient())
             {
                 client.Headers["application"] = "vnd.twitchtv.v3+json";
+                client.Headers["Client-ID"] = ClientId;
                 var requestData = client.DownloadString(prefix + requestUrl);
                 var formattedData = JsonConvert.DeserializeObject<T>(requestData);
                 Twitch.GetType().GetProperty(typeof (T).Name).SetValue(Twitch, formattedData);

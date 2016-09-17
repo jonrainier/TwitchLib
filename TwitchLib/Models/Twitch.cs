@@ -6,14 +6,14 @@ namespace TwitchLib.Models
 {
     public class Twitch
     {
-        public Twitch(string channel, string apiToken = "")
+        public Twitch(string channel, string clientId, string apiToken = "")
         {
             Configuration = new Configuration
             {
                 Channel = channel,
                 ApiToken = apiToken
             };
-            TwitchController = new TwitchController();
+            TwitchController = new TwitchController(clientId);
         }
 
         public Twitch(TwitchController p)

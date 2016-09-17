@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <AssemblyVersion>2016.9.16.1903</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,8 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -55,6 +56,8 @@
     <Compile Include="Models\ChatServers.cs" />
     <Compile Include="Models\GamesTop.cs" />
     <Compile Include="Models\IngestServer.cs" />
+    <Compile Include="Models\PubSub\Actions\MessageModels\ModMessageModel.cs" />
+    <Compile Include="Models\PubSub\Actions\Static\Message.cs" />
     <Compile Include="Models\Static\Authed\Notifications.cs" />
     <Compile Include="Models\Static\FPS.cs" />
     <Compile Include="Models\Static\Ingest.cs" />
@@ -68,9 +71,11 @@
     <Compile Include="Models\UserVideos.cs" />
     <Compile Include="Models\Twitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\PubSub\Actions\ModAction.cs" />
     <Compile Include="Util\Configuration.cs" />
     <Compile Include="Controllers\TwitchController.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
